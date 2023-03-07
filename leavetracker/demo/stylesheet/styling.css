@@ -1,0 +1,24 @@
+#insertButton, #ViewButton, #addUser, #editButton, #deleteButton, #removedate2, #removedate3, #removedate4, #removedate5, #removedate6, #removedate7, #removedate8,
+ #removedate9, #removedate10 {
+  margin-right : 5px;
+  margin-left : 5px;
+}
+#date1 {
+  margin-right : 48px;
+}
+#editusersearchhbox, #editusertablehbox, #editusersearchhbox2, #editusertablehbox2 {
+  margin-top : 20px;
+  margin-bottom : 30px;
+}
+#SearchButton{
+  margin-right : 10px;
+  margin-left : 10px;
+}
+#monthdropdownlabel,#yeardropdownlabel,#teamdropdownlabel,#getshifttrackerbutton,#downloadShifttracker {
+ 
+  margin-left : 50px;
+}
+#shifttrackertable{
+ margin-top : 50px;
+}
+

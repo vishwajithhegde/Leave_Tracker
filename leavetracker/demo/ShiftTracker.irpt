@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<TITLE>Shift Tracker</TITLE>
+<link rel="stylesheet" href="/XMII/CM/Default/viswajith/demo/stylesheet/styling.css">
+	<META http-equiv="X-UA-Compatible" content="IE=edge">
+	<META http-equiv='cache-control' content='no-cache'>
+	<META http-equiv='expires' content='0'>
+	<META http-equiv='pragma' content='no-cache'>
+<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+id="sap-ui-bootstrap"
+data-sap-ui-compatVersion="edge"
+	    data-sap-ui-theme="sap_horizon_dark"
+	    data-sap-ui-libs="sap.m, sap.tnt"
+	    data-sap-ui-async="true">
+
+</script>
+	<SCRIPT type="text/javascript">
+jQuery.sap.registerModulePath("Scripts","Javascripts/");
+sap.ui.getCore().attachInit(function () {
+		//changes done  for app versionin cache buster *** start
+		//force update on page load if version changed - i.e. app cache buster
+		$.post( "/XMII/CM/Default/viswajith/demo/resources/_appVersion.json?"
+			+ "&__=" + new Date().getTime()
+			, function(data){
+			   (function() {
+				var proxied = window.XMLHttpRequest.prototype.open;
+				window.XMLHttpRequest.prototype.open = function() {
+				var url = arguments[1];
+				if(url.indexOf("?") == -1){ url = url + "?"; }
+				arguments[1] = url + "&_TheAppVersion=" + data._appVersion;
+				return proxied.apply(this, [].slice.call(arguments));
+				};
+				})();
+
+		//changes done  for app versionin cache buster *** end
+
+
+
+
+
+var shifttracker=new sap.ui.view("shifttracker",{
+viewName:"Scripts.ShiftTracker",
+type:"JS"
+
+});
+
+
+shifttracker.placeAt("shifttrackercontent");
+
+
+	//changes done  for app versionin cache buster *** start
+				
+				return;
+			}
+          , 'json'
+        );
+ });
+	//changes done  for app versionin cache buster *** end
+</SCRIPT>
+</HEAD>
+<BODY class="sapUiBody">
+<div id="shifttrackercontent"> </div>
+<!--input type="hidden" id="userNameVal" name="UserNameValue" value="{FirstName}"-->
+		  <!--input type="hidden" id="lastNameVal" name="LastNameValue" value="{LastName}"-->
+                              <!--input type="hidden" name="Language" id="lan" value = "{Language}" /-->
+                        <!--input type="hidden" name="CD_USER" id="CD_USER" value = "{IllumLoginName}" /-->
+	<!--input type="hidden" name="CD_USER_ROLES" id="CD_USER_ROLES" value = "{IllumLoginRoles}" /-->
+</BODY>
+</HTML>
